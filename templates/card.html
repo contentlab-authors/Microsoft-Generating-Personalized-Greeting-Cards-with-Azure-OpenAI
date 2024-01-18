@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Generated Card</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Your Greeting Card</h1>
+        <p class="text-center">{{ message }}</p>
+        <div class="row justify-content-center">
+            {% for image_path in image_paths %}
+                <div class="col-md-4 mb-4">
+                    <img src="{{ url_for('static', filename=image_path) }}" class="img-fluid" alt="Generated Image">
+                    <a href="{{ url_for('static', filename=image_path) }}" download class="btn btn-primary btn-block mt-2">Save</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
